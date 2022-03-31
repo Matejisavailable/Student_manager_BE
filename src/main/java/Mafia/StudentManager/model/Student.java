@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "Student")
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,12 +14,14 @@ public class Student implements Serializable {
     private String priezvisko;
     private String mail;
     private String mesto;
-    private String odbor;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "odbor_id")
+    private Odbor odbor;
 
     public Student() {
     }
 
-    public Student(String meno, String priezvisko, String mail, String mesto, String odbor) {
+    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
         this.meno = meno;
         this.priezvisko = priezvisko;
         this.mail = mail;
@@ -66,11 +69,11 @@ public class Student implements Serializable {
         this.mesto = mesto;
     }
 
-    public String getOdbor() {
+    public Odbor getOdbor() {
         return odbor;
     }
 
-    public void setOdbor(String odbor) {
+    public void setOdbor(Odbor odbor) {
         this.odbor = odbor;
     }
 }

@@ -34,7 +34,7 @@ public class StudentController {
     @PutMapping("/change")
     public ResponseEntity<Student> changeStudent(@RequestBody Student student){
         Student changedstudent = studentService.addStudent(student);
-        return new ResponseEntity<>(changedstudent,HttpStatus.CREATED);
+        return new ResponseEntity<>(changedstudent,HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
