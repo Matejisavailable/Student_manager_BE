@@ -14,9 +14,8 @@ public class Student implements Serializable {
     private String priezvisko;
     private String mail;
     private String mesto;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "odbor_id")
-    private Odbor odbor;
+   // @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   // @JoinColumn(name = "odbor_id")//private Odbor odbor;
 
     public Student() {
     }
@@ -26,7 +25,7 @@ public class Student implements Serializable {
         this.priezvisko = priezvisko;
         this.mail = mail;
         this.mesto = mesto;
-        this.odbor = odbor;
+      //  this.odbor = odbor;
     }
 
     public long getId() {
@@ -69,13 +68,7 @@ public class Student implements Serializable {
         this.mesto = mesto;
     }
 
-    public Odbor getOdbor() {
-        return odbor;
-    }
 
-    public void setOdbor(Odbor odbor) {
-        this.odbor = odbor;
-    }
 }
 
 
