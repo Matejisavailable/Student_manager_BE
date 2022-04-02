@@ -11,7 +11,7 @@ public class Katedra {
     @Column(nullable = false, updatable = false)
     private long id;
     private String nazov;
-    private String vedudci;
+    private String veduci;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fakulta_id")
     private Fakulta fakulta;
@@ -21,7 +21,7 @@ public class Katedra {
 
     public Katedra(String nazov, String vedudci, Fakulta fakulta) {
         this.nazov = nazov;
-        this.vedudci = vedudci;
+        this.veduci = vedudci;
         this.fakulta = fakulta;
     }
 
@@ -42,11 +42,11 @@ public class Katedra {
     }
 
     public String getVedudci() {
-        return vedudci;
+        return veduci;
     }
 
     public void setVedudci(String vedudci) {
-        this.vedudci = vedudci;
+        this.veduci = vedudci;
     }
 
     public Fakulta getFakulta() {
