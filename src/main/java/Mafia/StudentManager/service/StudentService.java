@@ -24,13 +24,13 @@ public class StudentService {
         return studentRepository.findAll();
     }
     public Student findStudentById(long id){
-        return studentRepository.findStudentById(id).orElseThrow(()->new StudentNotFoundException("Student with id " +id+" was not found"));
+        return studentRepository.findById(id).orElseThrow(()->new StudentNotFoundException("Student with id " +id+" was not found"));
     }
     public Student updateStudent(Student student){
         return studentRepository.save(student);
     }
     public void deleteStudent(long id){
-        studentRepository.deleteStudentById(id);
+        studentRepository.deleteById(id); //Mierna úprava lebo tieto funkcie sú tam automaticky
 
     }
 }

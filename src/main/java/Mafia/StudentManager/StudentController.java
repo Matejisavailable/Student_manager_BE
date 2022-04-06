@@ -33,7 +33,7 @@ public class StudentController {
     }
     @PutMapping("/change")
     public ResponseEntity<Student> changeStudent(@RequestBody Student student){
-        Student changedstudent = studentService.addStudent(student);
+        Student changedstudent = studentService.addStudent(student);     //TODO DTO treba dorobiť
         return new ResponseEntity<>(changedstudent,HttpStatus.OK);
     }
 
