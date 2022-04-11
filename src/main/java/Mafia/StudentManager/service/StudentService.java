@@ -17,7 +17,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
     public Student addStudent(Student student){
-        //TODO mail
+        student.setMail((student.getMeno())+"."+(student.getPriezvisko())+"@skola.com");
         return studentRepository.save(student);
     }
     public List<Student> findStudents(){
