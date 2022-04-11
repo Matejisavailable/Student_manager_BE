@@ -14,12 +14,12 @@ public class Student implements Serializable {
     private String priezvisko;
     private String mail;
     private String mesto;
-   // @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+   // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
    // @JoinColumn(name = "odbor_id")//private Odbor odbor;
+    // private Odbor odbor;
 
     public Student() {
     }
-
     public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
         this.meno = meno;
         this.priezvisko = priezvisko;

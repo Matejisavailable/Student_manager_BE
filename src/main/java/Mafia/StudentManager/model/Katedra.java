@@ -12,7 +12,7 @@ public class Katedra {
     private long id;
     private String nazov;
     private String veduci;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name = "fakulta_id")
     private Fakulta fakulta;
 

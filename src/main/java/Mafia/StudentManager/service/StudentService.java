@@ -17,7 +17,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
     public Student addStudent(Student student){
-        //TODO generovat mail
+        //TODO mail
         return studentRepository.save(student);
     }
     public List<Student> findStudents(){

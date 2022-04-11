@@ -11,7 +11,7 @@ public class Odbor {
     private long id;
     private String nazov;
     private String konzultant;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) // Cascade sa treba vyhnúť
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "katedra_id")
     private Katedra katedra;
 
