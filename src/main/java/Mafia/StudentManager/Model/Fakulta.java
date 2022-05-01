@@ -13,7 +13,6 @@ public class Fakulta {
     private String nazov;
     private String veduci;
 
-
     public Fakulta() {
     }
 

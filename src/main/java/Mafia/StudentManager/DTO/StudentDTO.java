@@ -1,21 +1,20 @@
 package Mafia.StudentManager.DTO;
 
-import lombok.Data;
 
-@Data
 public class StudentDTO {
-    private long id;
+    private Long id;
     private String meno;
     private String priezvisko;
     private String mail;
     private String mesto;
-    private String odbor;
+    private Integer odbor;
+    private String rocnik;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,11 +50,19 @@ public class StudentDTO {
         this.mesto = mesto;
     }
 
-    public String getOdbor() {
+    public Integer getOdbor() {
         return odbor;
     }
 
-    public void setOdbor(String odbor) {
+    public void setOdbor(Integer odbor) {
         this.odbor = odbor;
+    }
+
+    public String getRocnik() {
+        return rocnik;
+    }
+
+    public void setRocnik(String rocnik) {
+        this.rocnik = rocnik;
     }
 }

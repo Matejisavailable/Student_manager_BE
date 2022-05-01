@@ -3,12 +3,11 @@ package Mafia.StudentManager.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Odbor")
 public class Odbor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private long id;
+    private Long id;
     private String nazov;
     private String konzultant;
     @ManyToOne(fetch = FetchType.LAZY)

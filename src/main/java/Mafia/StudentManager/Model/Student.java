@@ -1,38 +1,38 @@
 package Mafia.StudentManager.Model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "Student")
-public class Student implements Serializable {
+public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
-    private long id;
+    private Long id;
     private String meno;
     private String priezvisko;
     private String mail;
     private String mesto;
-   // @ManyToOne(fetch = FetchType.LAZY)
-   // @JoinColumn(name = "odbor_id")//private Odbor odbor;
-    // private Odbor odbor;
+    private String rocnik;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "odbor_id")
+    private Odbor odbor;
 
     public Student() {
     }
-    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
+    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor, String rocnik) {
         this.meno = meno;
         this.priezvisko = priezvisko;
         this.mail = mail;
         this.mesto = mesto;
-      //  this.odbor = odbor;
+        this.rocnik = rocnik;
+        this.odbor = odbor;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,7 +68,19 @@ public class Student implements Serializable {
         this.mesto = mesto;
     }
 
+    public String getRocnik() {
+        return rocnik;
+    }
+    public void setRocnik(String rocnik) {
+        this.rocnik = rocnik;
+    }
 
+    public Odbor getOdbor() {
+        return odbor;
+    }
+    public void setOdbor(Odbor odbor) {
+        this.odbor = odbor;
+    }
 }
 
 

@@ -1,10 +1,7 @@
 package Mafia.StudentManager.Controller;
-import Mafia.StudentManager.Model.Student;
+import Mafia.StudentManager.DTO.StudentDTO;
 import Mafia.StudentManager.Service.StudentService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -17,29 +14,27 @@ public class StudentController {
     }
 
     @GetMapping("/everyone")
-    public ResponseEntity<List<Student>> getStudents(){
-        List<Student> students = studentService.findStudents();
-        return new ResponseEntity<>(students, HttpStatus.OK);
+    public List<StudentDTO> getStudents(@RequestParam(required = false) String priezvisko){
+        return studentService.findStudents(priezvisko);
     }
-    @GetMapping("/find/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable("id") Long id){
-        Student student = studentService.findStudentById(id);
-        return new ResponseEntity<>(student, HttpStatus.OK);
-    }
+
     @PostMapping("/add")
-    public ResponseEntity<Student> addStudent(@RequestBody Student student){
-        Student student1 = studentService.addStudent(student);
-        return new ResponseEntity<>(student1,HttpStatus.CREATED);
+    public Long addStudent(@RequestBody StudentDTO student){
+        return studentService.addStudent(student);
     }
+
+    @GetMapping("/find/{id}")
+    public StudentDTO getStudentById(@PathVariable("id") Long id){
+        return studentService.findStudentById(id);
+    }
+
     @PutMapping("/change")
-    public ResponseEntity<Student> changeStudent(@RequestBody Student student){
-        Student changedstudent = studentService.addStudent(student);     //TODO DTO treba dorobiť
-        return new ResponseEntity<>(changedstudent,HttpStatus.OK);
+    public void changeStudent(@PathVariable Long id, @RequestBody StudentDTO student){
+        studentService.updateStudent(id,student);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteStudent(@PathVariable("id") Long id){
+    public void deleteStudent(@PathVariable("id") Long id){
         studentService.deleteStudent(id);
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
