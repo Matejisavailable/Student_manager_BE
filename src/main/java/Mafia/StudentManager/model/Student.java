@@ -14,18 +14,38 @@ public class Student implements Serializable {
     private String priezvisko;
     private String mail;
     private String mesto;
-   // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   // @JoinColumn(name = "odbor_id")//private Odbor odbor;
-    // private Odbor odbor;
+    private String rocnik;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "odbor_id")//private Odbor odbor;
+    private Odbor odbor;
 
     public Student() {
     }
-    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
+
+    public Odbor getOdbor() {
+        return odbor;
+    }
+
+    public void setOdbor(Odbor odbor) {
+        this.odbor = odbor;
+    }
+
+     public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
         this.meno = meno;
         this.priezvisko = priezvisko;
         this.mail = mail;
         this.mesto = mesto;
-      //  this.odbor = odbor;
+        this.odbor = odbor;
+        this.rocnik = rocnik;
+    }
+
+    public String getRocnik() {
+        return rocnik;
+    }
+
+    public void setRocnik(String rocnik) {
+        this.rocnik = rocnik;
     }
 
     public long getId() {
