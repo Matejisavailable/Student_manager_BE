@@ -8,7 +8,7 @@ public class KatedraDTO {
     private long id;
     private String nazov;
     private String veduci;
-    private FakultaDTO fakulta;
+    private String fakulta;
 
     public long getId() {
         return id;
@@ -34,11 +34,11 @@ public class KatedraDTO {
         this.veduci = veduci;
     }
 
-    public FakultaDTO getFakulta() {
+    public String getFakulta() {
         return fakulta;
     }
 
-    public void setFakulta(FakultaDTO fakulta) {
+    public void setFakulta(String fakulta) {
         this.fakulta = fakulta;
     }
 }
