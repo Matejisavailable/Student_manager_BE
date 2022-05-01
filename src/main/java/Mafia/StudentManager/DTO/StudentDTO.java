@@ -9,7 +9,7 @@ public class StudentDTO {
     private String priezvisko;
     private String mail;
     private String mesto;
-    private OdborDTO odbor;
+    private String odbor;
 
     public long getId() {
         return id;
@@ -51,11 +51,11 @@ public class StudentDTO {
         this.mesto = mesto;
     }
 
-    public OdborDTO getOdbor() {
+    public String getOdbor() {
         return odbor;
     }
 
-    public void setOdbor(OdborDTO odbor) {
+    public void setOdbor(String odbor) {
         this.odbor = odbor;
     }
 }
