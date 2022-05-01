@@ -1,32 +1,15 @@
-package Mafia.StudentManager.model;
+package Mafia.StudentManager.DTO;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import lombok.Data;
 
-@Entity
-@Table(name = "Student")
-public class Student implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+@Data
+public class StudentDTO {
     private long id;
     private String meno;
     private String priezvisko;
     private String mail;
     private String mesto;
-   // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   // @JoinColumn(name = "odbor_id")//private Odbor odbor;
-    // private Odbor odbor;
-
-    public Student() {
-    }
-    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor) {
-        this.meno = meno;
-        this.priezvisko = priezvisko;
-        this.mail = mail;
-        this.mesto = mesto;
-      //  this.odbor = odbor;
-    }
+    private OdborDTO odbor;
 
     public long getId() {
         return id;
@@ -68,7 +51,11 @@ public class Student implements Serializable {
         this.mesto = mesto;
     }
 
+    public OdborDTO getOdbor() {
+        return odbor;
+    }
 
+    public void setOdbor(OdborDTO odbor) {
+        this.odbor = odbor;
+    }
 }
-
-

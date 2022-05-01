@@ -1,6 +1,6 @@
-package Mafia.StudentManager;
-import Mafia.StudentManager.model.Student;
-import Mafia.StudentManager.service.StudentService;
+package Mafia.StudentManager.Controller;
+import Mafia.StudentManager.Model.Student;
+import Mafia.StudentManager.Service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,26 +1,12 @@
-package Mafia.StudentManager.model;
+package Mafia.StudentManager.DTO;
 
+import lombok.Data;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Fakulta")
-public class Fakulta {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
+@Data
+public class FakultaDTO {
     private long id;
     private String nazov;
     private String veduci;
-
-
-    public Fakulta() {
-    }
-
-    public Fakulta(String nazov, String veduci) {
-        this.nazov = nazov;
-        this.veduci = veduci;
-    }
 
     public long getId() {
         return id;

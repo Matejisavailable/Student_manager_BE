@@ -1,8 +1,8 @@
-package Mafia.StudentManager.service;
+package Mafia.StudentManager.Service;
 
-import Mafia.StudentManager.exceptions.StudentNotFoundException;
-import Mafia.StudentManager.model.Student;
-import Mafia.StudentManager.repository.StudentRepository;
+import Mafia.StudentManager.Exceptions.StudentNotFoundException;
+import Mafia.StudentManager.Model.Student;
+import Mafia.StudentManager.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
     public Student addStudent(Student student){
-        student.setMail((student.getMeno())+"."+(student.getPriezvisko())+"@skola.com");
+       // student.setMail((student.getMeno())+"."+(student.getPriezvisko())+"@skola.com");
         return studentRepository.save(student);
     }
     public List<Student> findStudents(){

@@ -1,4 +1,4 @@
-package Mafia.StudentManager.model;
+package Mafia.StudentManager.Model;
 
 import javax.persistence.*;
 

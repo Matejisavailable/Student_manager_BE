@@ -1,6 +1,5 @@
-package Mafia.StudentManager.model;
+package Mafia.StudentManager.Model;
 
-import javax.naming.Name;
 import javax.persistence.*;
 
 @Entity
