@@ -1,6 +1,9 @@
 package Mafia.StudentManager.DTO;
 
 
+import Mafia.StudentManager.Model.Fakulta;
+import Mafia.StudentManager.Model.Katedra;
+
 public class StudentDTO {
     private Long id;
     private String meno;
@@ -9,6 +12,25 @@ public class StudentDTO {
     private String mesto;
     private Long odborId;
     private String rocnik;
+    private String katedranaz;
+    private String fakultanaz;
+
+    public String getKatedranaz() {
+        return katedranaz;
+    }
+
+    public void setKatedranaz(String katedranaz) {
+        this.katedranaz = katedranaz;
+    }
+
+    public String getFakultanaz() {
+        return fakultanaz;
+    }
+
+    public void setFakultanaz(String fakultanaz) {
+        this.fakultanaz = fakultanaz;
+    }
+
 
     public Long getId() {
         return id;

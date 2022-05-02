@@ -30,6 +30,8 @@ public class StudentService {
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
         studentDTO.setOdbor(student.getOdbor().getId());
+        studentDTO.setFakultanaz(student.getFakulta().getNazov());
+        studentDTO.setKatedranaz(student.getKatedra().getNazov());
         return studentDTO;
     }
 

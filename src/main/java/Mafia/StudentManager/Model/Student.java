@@ -17,16 +17,40 @@ public class Student{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "odbor_id")
     private Odbor odborId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "katedra_id")
+    private Katedra katedra;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fakulta_id")
+    private Fakulta fakulta;
 
     public Student() {
     }
-    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odborId, String rocnik) {
+    public Student(Fakulta fakulta, Katedra katedra, String meno, String priezvisko, String mail, String mesto, Odbor odborId, String rocnik) {
         this.meno = meno;
         this.priezvisko = priezvisko;
         this.mail = mail;
         this.mesto = mesto;
         this.rocnik = rocnik;
         this.odborId = odborId;
+        this.katedra = katedra;
+        this.fakulta = fakulta;
+    }
+
+    public Katedra getKatedra() {
+        return katedra;
+    }
+
+    public void setKatedra(Katedra katedra) {
+        this.katedra = katedra;
+    }
+
+    public Fakulta getFakulta() {
+        return fakulta;
+    }
+
+    public void setFakulta(Fakulta fakulta) {
+        this.fakulta = fakulta;
     }
 
     public Long getId() {
