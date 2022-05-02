@@ -7,7 +7,7 @@ public class StudentDTO {
     private String priezvisko;
     private String mail;
     private String mesto;
-    private Integer odbor;
+    private Long odborId;
     private String rocnik;
 
     public Long getId() {
@@ -35,11 +35,12 @@ public class StudentDTO {
     }
 
     public String getMail() {
-        return mail;
+        return mail.toLowerCase();
     }
 
     public void setMail(String mail) {
         this.mail = mail;
+        mail.toLowerCase();
     }
 
     public String getMesto() {
@@ -50,12 +51,12 @@ public class StudentDTO {
         this.mesto = mesto;
     }
 
-    public Integer getOdbor() {
-        return odbor;
+    public Long getOdbor() {
+        return odborId;
     }
 
-    public void setOdbor(Integer odbor) {
-        this.odbor = odbor;
+    public void setOdbor(Long odbor) {
+        this.odborId = odbor;
     }
 
     public String getRocnik() {

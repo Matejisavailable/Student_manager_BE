@@ -1,6 +1,7 @@
 package Mafia.StudentManager.Model;
 
 import javax.persistence.*;
+import java.util.Locale;
 
 @Entity
 public class Student{
@@ -15,17 +16,17 @@ public class Student{
     private String rocnik;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "odbor_id")
-    private Odbor odbor;
+    private Odbor odborId;
 
     public Student() {
     }
-    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odbor, String rocnik) {
+    public Student(String meno, String priezvisko, String mail, String mesto, Odbor odborId, String rocnik) {
         this.meno = meno;
         this.priezvisko = priezvisko;
         this.mail = mail;
         this.mesto = mesto;
         this.rocnik = rocnik;
-        this.odbor = odbor;
+        this.odborId = odborId;
     }
 
     public Long getId() {
@@ -53,11 +54,12 @@ public class Student{
     }
 
     public String getMail() {
-        return mail;
+        return mail.toLowerCase(Locale.ROOT);
     }
 
     public void setMail(String mail) {
         this.mail = mail;
+        this.mail.toLowerCase();
     }
 
     public String getMesto() {
@@ -76,10 +78,10 @@ public class Student{
     }
 
     public Odbor getOdbor() {
-        return odbor;
+        return odborId;
     }
-    public void setOdbor(Odbor odbor) {
-        this.odbor = odbor;
+    public void setOdbor(Odbor odborId) {
+        this.odborId = odborId;
     }
 }
 

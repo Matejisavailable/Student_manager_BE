@@ -3,16 +3,16 @@ package Mafia.StudentManager.DTO;
 import Mafia.StudentManager.Model.Katedra;
 
 public class OdborDTO {
-    private long id;
+    private Long id;
     private String nazov;
     private String konzultant;
     private String katedra;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

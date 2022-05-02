@@ -4,6 +4,7 @@ import Mafia.StudentManager.DTO.OdborDTO;
 import Mafia.StudentManager.DTO.StudentDTO;
 import Mafia.StudentManager.Model.Odbor;
 import Mafia.StudentManager.Model.Student;
+import Mafia.StudentManager.Repository.OdborRepository;
 import Mafia.StudentManager.Repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -14,20 +15,22 @@ import java.util.Optional;
 @Service
 public class StudentService {
     private final StudentRepository studentRepository;
+    private final OdborRepository odborRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, OdborRepository odborRepository) {
         this.studentRepository = studentRepository;
+        this.odborRepository = odborRepository;
     }
+
     private static StudentDTO mapStudentDTO(Student student){
         StudentDTO studentDTO = new StudentDTO();
-        OdborDTO odborDTO = new OdborDTO();
         studentDTO.setId(student.getId());
         studentDTO.setMeno(student.getMeno());
         studentDTO.setPriezvisko(student.getPriezvisko());
         studentDTO.setMail((student.getMeno())+"."+(student.getPriezvisko())+"@skola.com");
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
-        studentDTO.setOdbor(student.getOdbor());
+        studentDTO.setOdbor(student.getOdbor().getId());
         return studentDTO;
     }
 @Transactional
@@ -38,9 +41,13 @@ public class StudentService {
         student.setMail((studentDTO.getMeno())+"."+(studentDTO.getPriezvisko())+"@skola.com");
         student.setMesto(studentDTO.getMesto());
         student.setRocnik(studentDTO.getRocnik());
-        student.setOdbor(studentDTO.getOdbor());
+        student.setOdbor(findOdborId(studentDTO.getOdbor()));
         this.studentRepository.save(student);
         return student.getId();
+    }
+    @Transactional
+    public Odbor findOdborId(Long id) {
+        return odborRepository.getById(id);
     }
 @Transactional
     public List<StudentDTO> findStudents(String priezvisko) {

@@ -1,9 +1,7 @@
 package Mafia.StudentManager.Service;
 
 import Mafia.StudentManager.DTO.OdborDTO;
-import Mafia.StudentManager.DTO.StudentDTO;
 import Mafia.StudentManager.Model.Odbor;
-import Mafia.StudentManager.Model.Student;
 import Mafia.StudentManager.Repository.OdborRepository;
 import org.springframework.stereotype.Service;
 

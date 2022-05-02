@@ -12,7 +12,6 @@ public class Fakulta {
     private long id;
     private String nazov;
     private String veduci;
-
     public Fakulta() {
     }
 
