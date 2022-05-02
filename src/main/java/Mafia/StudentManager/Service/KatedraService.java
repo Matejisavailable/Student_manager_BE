@@ -28,4 +28,5 @@ public class KatedraService {
             }
             return katedry;
         }
+
 }

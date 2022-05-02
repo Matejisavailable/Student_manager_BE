@@ -7,7 +7,7 @@ import java.util.Locale;
 public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private Long id;
     private String meno;
     private String priezvisko;
@@ -24,8 +24,7 @@ public class Student{
     @JoinColumn(name = "fakulta_id")
     private Fakulta fakulta;
 
-    public Student() {
-    }
+
     public Student(Fakulta fakulta, Katedra katedra, String meno, String priezvisko, String mail, String mesto, Odbor odborId, String rocnik) {
         this.meno = meno;
         this.priezvisko = priezvisko;
@@ -51,6 +50,10 @@ public class Student{
 
     public void setFakulta(Fakulta fakulta) {
         this.fakulta = fakulta;
+    }
+
+    public Student() {
+
     }
 
     public Long getId() {

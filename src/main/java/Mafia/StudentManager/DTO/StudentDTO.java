@@ -12,22 +12,22 @@ public class StudentDTO {
     private String mesto;
     private Long odborId;
     private String rocnik;
-    private String katedranaz;
-    private String fakultanaz;
+    private Long katedranaz;
+    private Long fakultanaz;
 
-    public String getKatedranaz() {
+    public Long getKatedranaz() {
         return katedranaz;
     }
 
-    public void setKatedranaz(String katedranaz) {
+    public void setKatedranaz(Long katedranaz) {
         this.katedranaz = katedranaz;
     }
 
-    public String getFakultanaz() {
+    public Long getFakultanaz() {
         return fakultanaz;
     }
 
-    public void setFakultanaz(String fakultanaz) {
+    public void setFakultanaz(Long fakultanaz) {
         this.fakultanaz = fakultanaz;
     }
 

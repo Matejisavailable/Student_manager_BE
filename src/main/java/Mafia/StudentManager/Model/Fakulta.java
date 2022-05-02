@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Fakulta {
     @Id
     @Column(nullable = false, updatable = false)
-    private long id;
+    private Long id;
     private String nazov;
     private String veduci;
     public Fakulta() {
@@ -19,7 +19,7 @@ public class Fakulta {
         this.veduci = veduci;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

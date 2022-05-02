@@ -1,9 +1,11 @@
 package Mafia.StudentManager.Service;
-
-import Mafia.StudentManager.DTO.OdborDTO;
 import Mafia.StudentManager.DTO.StudentDTO;
+import Mafia.StudentManager.Model.Fakulta;
+import Mafia.StudentManager.Model.Katedra;
 import Mafia.StudentManager.Model.Odbor;
 import Mafia.StudentManager.Model.Student;
+import Mafia.StudentManager.Repository.FakultaRepository;
+import Mafia.StudentManager.Repository.KatedraRepository;
 import Mafia.StudentManager.Repository.OdborRepository;
 import Mafia.StudentManager.Repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,14 @@ import java.util.Optional;
 public class StudentService {
     private final StudentRepository studentRepository;
     private final OdborRepository odborRepository;
+    private final FakultaRepository fakultaRepository;
+    private final KatedraRepository katedraRepository;
 
-    public StudentService(StudentRepository studentRepository, OdborRepository odborRepository) {
+    public StudentService(StudentRepository studentRepository, OdborRepository odborRepository,KatedraRepository katedraRepository,FakultaRepository fakultaRepository) {
         this.studentRepository = studentRepository;
         this.odborRepository = odborRepository;
+        this.fakultaRepository = fakultaRepository;
+        this.katedraRepository = katedraRepository;
     }
     private static StudentDTO mapStudentDTO(Student student){
         StudentDTO studentDTO = new StudentDTO();
@@ -30,8 +36,8 @@ public class StudentService {
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
         studentDTO.setOdbor(student.getOdbor().getId());
-        studentDTO.setFakultanaz(student.getFakulta().getNazov());
-        studentDTO.setKatedranaz(student.getKatedra().getNazov());
+        studentDTO.setFakultanaz(student.getFakulta().getId());
+        studentDTO.setKatedranaz(student.getKatedra().getId());
         return studentDTO;
     }
 
@@ -44,6 +50,8 @@ public class StudentService {
         student.setMesto(studentDTO.getMesto());
         student.setRocnik(studentDTO.getRocnik());
         student.setOdbor(findOdborId(studentDTO.getOdbor()));
+        student.setFakulta(findFakulta(studentDTO.getFakultanaz()));
+        student.setKatedra(findKatedra(studentDTO.getKatedranaz()));
         this.studentRepository.save(student);
         return student.getId();
     }
@@ -52,6 +60,15 @@ public class StudentService {
     public Odbor findOdborId(Long id) {
         return odborRepository.getById(id);
     }
+    @Transactional
+    public Fakulta findFakulta(Long id){
+        return fakultaRepository.getById(id);
+    }
+    @Transactional
+    public Katedra findKatedra(Long id){
+        return katedraRepository.getById(id);
+    }
+
 @Transactional
     public List<StudentDTO> findStudents(String priezvisko) {
     List<StudentDTO> students = new LinkedList<>();
@@ -82,6 +99,8 @@ public class StudentService {
             byId.get().setMesto(studentDTO.getMesto());
             byId.get().setId(studentDTO.getId());
             byId.get().setRocnik(studentDTO.getRocnik());
+            byId.get().setKatedra(findKatedra(studentDTO.getKatedranaz()));
+            byId.get().setFakulta(findFakulta(studentDTO.getFakultanaz()));
         }
     }
     @Transactional

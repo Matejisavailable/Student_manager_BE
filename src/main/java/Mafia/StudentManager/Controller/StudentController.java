@@ -29,7 +29,7 @@ public class StudentController {
         return studentService.findStudentById(id);
     }
 
-    @PutMapping("/change")
+    @PutMapping("/change/{id}")
     public void changeStudent(@PathVariable Long id, @RequestBody StudentDTO student){
         studentService.updateStudent(id,student);
     }
