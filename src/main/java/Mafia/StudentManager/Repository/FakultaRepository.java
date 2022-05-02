@@ -1,4 +1,7 @@
 package Mafia.StudentManager.Repository;
 
-public interface FakultaRepository {
+import Mafia.StudentManager.Model.Fakulta;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FakultaRepository extends JpaRepository<Fakulta, Long> {
 }

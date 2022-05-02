@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 public class Odbor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
     private String nazov;

@@ -21,30 +21,31 @@ public class StudentService {
         this.studentRepository = studentRepository;
         this.odborRepository = odborRepository;
     }
-
     private static StudentDTO mapStudentDTO(Student student){
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setId(student.getId());
         studentDTO.setMeno(student.getMeno());
         studentDTO.setPriezvisko(student.getPriezvisko());
-        studentDTO.setMail((student.getMeno())+"."+(student.getPriezvisko())+"@skola.com");
+        studentDTO.setMail((student.getMeno())+"."+(student.getPriezvisko())+(student.getId())+"@skola.com");
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
         studentDTO.setOdbor(student.getOdbor().getId());
         return studentDTO;
     }
+
 @Transactional
     public Long addStudent(StudentDTO studentDTO){
         Student student = new Student();
         student.setMeno(studentDTO.getMeno());
         student.setPriezvisko(studentDTO.getPriezvisko());
-        student.setMail((studentDTO.getMeno())+"."+(studentDTO.getPriezvisko())+"@skola.com");
+        student.setMail((studentDTO.getMeno())+"."+(studentDTO.getPriezvisko())+(studentDTO.getId())+"@skola.com");
         student.setMesto(studentDTO.getMesto());
         student.setRocnik(studentDTO.getRocnik());
         student.setOdbor(findOdborId(studentDTO.getOdbor()));
         this.studentRepository.save(student);
         return student.getId();
     }
+
     @Transactional
     public Odbor findOdborId(Long id) {
         return odborRepository.getById(id);
