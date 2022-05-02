@@ -14,6 +14,35 @@ public class StudentDTO {
     private String rocnik;
     private Long katedranaz;
     private Long fakultanaz;
+    private String katedraNazov;
+    private String fakultaNazov;
+    private String odborNazov;
+
+    public String getOdborNazov() {
+        return odborNazov;
+    }
+
+    public void setOdborNazov(String odborNazov) {
+        this.odborNazov = odborNazov;
+    }
+
+    public String getKatedraNazov() {
+        return katedraNazov;
+    }
+
+
+    public void setKatedraNazov(String katedraNazov) {
+        this.katedraNazov = katedraNazov;
+    }
+
+
+    public String getFakultaNazov() {
+        return fakultaNazov;
+    }
+
+    public void setFakultaNazov(String fakultaNazov) {
+        this.fakultaNazov = fakultaNazov;
+    }
 
     public Long getKatedranaz() {
         return katedranaz;

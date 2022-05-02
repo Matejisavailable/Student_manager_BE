@@ -32,26 +32,27 @@ public class StudentService {
         studentDTO.setId(student.getId());
         studentDTO.setMeno(student.getMeno());
         studentDTO.setPriezvisko(student.getPriezvisko());
-        studentDTO.setMail((student.getMeno())+"."+(student.getPriezvisko())+(student.getId())+"@skola.com");
+        studentDTO.setMail(student.getMail());
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
-        studentDTO.setOdbor(student.getOdbor().getId());
-        studentDTO.setFakultanaz(student.getFakulta().getId());
-        studentDTO.setKatedranaz(student.getKatedra().getId());
+
+        studentDTO.setOdborNazov(student.getOdbor().getNazov());
+        studentDTO.setFakultaNazov(student.getFakulta().getNazov());
+        studentDTO.setKatedraNazov(student.getKatedra().getNazov());
         return studentDTO;
     }
-
 @Transactional
     public Long addStudent(StudentDTO studentDTO){
         Student student = new Student();
         student.setMeno(studentDTO.getMeno());
         student.setPriezvisko(studentDTO.getPriezvisko());
-        student.setMail((studentDTO.getMeno())+"."+(studentDTO.getPriezvisko())+(studentDTO.getId())+"@skola.com");
         student.setMesto(studentDTO.getMesto());
         student.setRocnik(studentDTO.getRocnik());
         student.setOdbor(findOdborId(studentDTO.getOdbor()));
         student.setFakulta(findFakulta(studentDTO.getFakultanaz()));
         student.setKatedra(findKatedra(studentDTO.getKatedranaz()));
+        student = this.studentRepository.save(student);
+        student.setMail((studentDTO.getMeno())+"."+(studentDTO.getPriezvisko())+(student.getId())+"@skola.com");
         this.studentRepository.save(student);
         return student.getId();
     }
@@ -88,7 +89,6 @@ public class StudentService {
         }
         return null;
     }
-
     @Transactional
     public void updateStudent(Long id, StudentDTO studentDTO){
         Optional<Student> byId = studentRepository.findById(id);
@@ -97,10 +97,6 @@ public class StudentService {
             byId.get().setPriezvisko(studentDTO.getPriezvisko());
             byId.get().setMail(studentDTO.getMail());
             byId.get().setMesto(studentDTO.getMesto());
-            byId.get().setId(studentDTO.getId());
-            byId.get().setRocnik(studentDTO.getRocnik());
-            byId.get().setKatedra(findKatedra(studentDTO.getKatedranaz()));
-            byId.get().setFakulta(findFakulta(studentDTO.getFakultanaz()));
         }
     }
     @Transactional
