@@ -3,7 +3,6 @@ import Mafia.StudentManager.DTO.OdborDTO;
 import Mafia.StudentManager.Service.OdborService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
 @RequestMapping("/odbor")
 @RestController
 public class OdborController {

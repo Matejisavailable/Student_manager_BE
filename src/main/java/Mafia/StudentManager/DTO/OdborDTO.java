@@ -1,6 +1,7 @@
 package Mafia.StudentManager.DTO;
 
 
+
 public class OdborDTO {
     private Long id;
     private String nazov;

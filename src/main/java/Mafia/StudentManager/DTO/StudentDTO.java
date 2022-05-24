@@ -17,15 +17,7 @@ public class StudentDTO {
     private String katedraNazov;
     private String fakultaNazov;
     private String odborNazov;
-    private String typ;
 
-    public String getTyp() {
-        return typ;
-    }
-
-    public void setTyp(String typ) {
-        this.typ = typ;
-    }
 
     public String getOdborNazov() {
         return odborNazov;
