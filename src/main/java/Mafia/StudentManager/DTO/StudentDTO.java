@@ -4,6 +4,9 @@ package Mafia.StudentManager.DTO;
 import Mafia.StudentManager.Model.Fakulta;
 import Mafia.StudentManager.Model.Katedra;
 
+import lombok.Data;
+
+@Data
 public class StudentDTO {
     private Long id;
     private String meno;

@@ -1,7 +1,8 @@
 package Mafia.StudentManager.DTO;
 
+import lombok.Data;
 
-
+@Data
 public class OdborDTO {
     private Long id;
     private String nazov;

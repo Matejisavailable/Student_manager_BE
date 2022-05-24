@@ -5,10 +5,14 @@ import Mafia.StudentManager.DTO.OdborDTO;
 import Mafia.StudentManager.Service.KatedraService;
 import Mafia.StudentManager.Service.OdborService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RequestMapping("/katedra")
+@RestController
 public class KatedraController {
     private final KatedraService katedraService;
 
