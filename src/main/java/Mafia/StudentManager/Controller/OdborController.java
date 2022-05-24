@@ -4,6 +4,8 @@ import Mafia.StudentManager.Service.OdborService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@RequestMapping("/odbor")
+@RestController
 public class OdborController {
     private final OdborService odborService;
 

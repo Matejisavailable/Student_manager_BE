@@ -35,28 +35,20 @@ public class Student{
         this.katedra = katedra;
         this.fakulta = fakulta;
     }
-
-
     public Student() {
-
     }
-
     public Katedra getKatedra() {
         return katedra;
     }
-
     public void setKatedra(Katedra katedra) {
         this.katedra = katedra;
     }
-
     public Fakulta getFakulta() {
         return fakulta;
     }
-
     public void setFakulta(Fakulta fakulta) {
         this.fakulta = fakulta;
     }
-
     public Long getId() {
         return id;
     }
