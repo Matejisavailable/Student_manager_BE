@@ -9,21 +9,34 @@ public class Odbor {
     private Long id;
     private String nazov;
     private String konzultant;
+    private String typ;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "katedra_id")
     private Katedra katedra;
 
+
     public Odbor() {
+    }
+
+
+    public Odbor(String nazov, String konzultant, Katedra katedra, String typ) {
+        this.nazov = nazov;
+        this.konzultant = konzultant;
+        this.katedra = katedra;
+        this.typ = typ;
+
     }
 
     public Katedra getKatedra() {
         return katedra;
     }
 
-    public Odbor(String nazov, String konzultant, Katedra katedra) {
-        this.nazov = nazov;
-        this.konzultant = konzultant;
-        this.katedra = katedra;
+    public String getTyp() {
+        return typ;
+    }
+
+    public void setTyp(String typ) {
+        this.typ = typ;
     }
 
     public Long getId() {

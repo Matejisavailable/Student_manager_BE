@@ -36,6 +36,7 @@ public class StudentService {
         studentDTO.setMesto(student.getMesto());
         studentDTO.setRocnik(student.getRocnik());
 
+        studentDTO.setTyp(student.getOdbor().getTyp());
         studentDTO.setOdborNazov(student.getOdbor().getNazov());
         studentDTO.setFakultaNazov(student.getFakulta().getNazov());
         studentDTO.setKatedraNazov(student.getKatedra().getNazov());

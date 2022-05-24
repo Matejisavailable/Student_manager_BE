@@ -21,6 +21,7 @@ public class OdborService {
         odborDTO.setId(odbor.getId());
         odborDTO.setNazov(odbor.getNazov());
         odborDTO.setKonzultant(odbor.getKonzultant());
+        odborDTO.setTyp(odbor.getTyp());
         return odborDTO;
     }
     @Transactional

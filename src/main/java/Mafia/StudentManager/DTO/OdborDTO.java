@@ -3,12 +3,20 @@ package Mafia.StudentManager.DTO;
 import Mafia.StudentManager.Model.Katedra;
 import lombok.Data;
 
-@Data
 public class OdborDTO {
     private Long id;
     private String nazov;
     private String konzultant;
     private String katedra;
+    private String typ;
+
+    public String getTyp() {
+        return typ;
+    }
+
+    public void setTyp(String typ) {
+        this.typ = typ;
+    }
 
     public Long getId() {
         return id;
